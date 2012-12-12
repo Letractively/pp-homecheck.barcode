@@ -1,0 +1,7 @@
+name = Barcode Module
+package = Membership Barcodes
+description = Allows for barcode scanning checkin for events and logging of volunteer hours. 
+core = 6.x
+files[] = barcode.module
+dependencies[] = event
+dependencies[] = civicrm
