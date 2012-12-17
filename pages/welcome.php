@@ -1,23 +1,9 @@
 <html>
 <?php 
 include_once("scripts.inc");
-
 $image_path = "sites/all/modules/barcode/pages/welcome.jpg";
-
-
 ?>
 <link rel = "stylesheet" href = "<?php echo $style_sheet_path?>" type = "text/css" />
-<script> 
-//places the cursor in the barcode input field and clears the field
-function barcodeFocus(){
-	document.getElementById('barcode').value = "";
-	document.getElementById('barcode').focus();
-}
-function guestRedirect(){
-
-	document.forms['guestForm'].submit();
-}
-</script>
 
 <form method = "POST" id = "guestForm">
 <input type = "hidden" name = "guest" value = "true" />
@@ -26,11 +12,11 @@ function guestRedirect(){
 <!-- GUEST SIGN IN BUTTON -->
 <table class = "button">
 
-	  <tr onmouseover = "highlightRow('guest')" onmouseout = "unhighlightRow('guest','99CCFF')" >
+	  <tr onmouseover = "highlightRow('guest')" onmouseout = "unhighlightRow('guest','ffe23d')" >
 	  <td id = "guest" onclick = "guestRedirect()" style = "text-align:center;">
+	  	
+	  	<i style = "font-size:15px;">Sign in as Guest.</i>
 	  	<br/>
-	  	<b style = "font-size:25px;">Sign in as Guest</b>
-	  	<br/><br/>
 	  </td></tr>
 </table>
 
@@ -43,11 +29,8 @@ function guestRedirect(){
 
 <!-- WELCOME IMAGE -->
 <img onclick = "barcodeFocus()" src = "<?php echo $image_path?>"
-style = "width:100% ; position:absolute; top:100px; left:0px" />
+style = "width:90% ; position:absolute; top:50px; left:10px" />
 <script>barcodeFocus();</script>
-
-
-
 
 
 </html>

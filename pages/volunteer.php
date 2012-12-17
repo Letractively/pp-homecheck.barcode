@@ -2,24 +2,21 @@
 
 include_once("scripts.inc");
 
-
+echo "result[first_name]=".$result['first_name'];
 
 ?>
 <link rel = "stylesheet" href = "<?php echo $style_sheet_path?>" type = "text/css" />
 
-<div style = 'width:1000px; margin:0 auto;'>
+<div style = 'width:500px; margin:0 auto;'>
 
-<fieldset style = "background-color:F0F0F0; width:1000px;">
-<legend style = "font-weight:bold; font-size:30;">Please Enter The Number of Volunteer Hours:</legend>
+<fieldset style = "background-color:F0F0F0; width:500px;">
+<legend style = "font-style:italic; font-size:30;">Please enter your volunteering hours:</legend>
+
 <div style = "text-align:center;">
 
-<table><tr><td>
-
-<table><tr>
-<th colspan = 2 style ="font-size:30; font-weight:bold;">Number of Hours: </th>
-
-<th id = "display" style ="font-size:30; font-weight:bold;">0</th>
-</tr><tr>
+<table>
+<th id = "display" style ="font-size:30;font-style:italic;">0</th>
+<tr><td><table>
 
 
 <?php 
@@ -38,10 +35,10 @@ foreach($buttons as $i=>$b){
 <td>
 
 
-	<table style = "border-style:solid; width:100; background-color:99CCFF">
+	<table style = "border-style:solid; width:100; background-color:ffe23d">
 	<tr onmouseover = "highlightRow('<?php echo $i?>')" 
-	    onmouseout = "unhighlightRow('<?php echo $i?>','99CCFF')" 
-	    style = "width:100; height:80;" >
+	    onmouseout = "unhighlightRow('<?php echo $i?>','ffe23d')" 
+	    style = "width:50; height:40;" >
 	<td id = "<?php echo $i?>" onclick = "digitSelect('<?php echo $i?>')" 
 		style = "text-align:center; font-size:30; font-weight:bold">
 	<?php echo $b?>
@@ -61,29 +58,33 @@ foreach($buttons as $i=>$b){
 
 <form id = "submitHours" method = "POST"> 
 <input type = "hidden" id = "hours" name = "hours" value = "0"/>
+<input type = "hidden" name = "name" value = <?php echo $name?> />
+<input type = "hidden" name = "phone" value = <?php echo $phone?> />
 <input type = "hidden" name = "barcode" value = <?php echo $barcode?> />
 </form>
 <form id = "cancel" method = "POST"> 
+<input type = "hidden" name = "name" value = <?php echo $name?> />
+<input type = "hidden" name = "phone" value = <?php echo $phone?> />
 <input type = "hidden" name = "barcode" value = <?php echo $barcode?> />
 </form>
 
-<table style = "border-style:solid; width:200; background-color:00FF66">
+<table style = "border-style:solid; width:100; background-color:00FF66">
 	<tr onmouseover = "highlightRow('submit')" 
 	    onmouseout = "unhighlightRow('submit','00FF66')" 
-	    style = "width:100; height:80;" >
+	    style = "width:50; height:30;" >
 	<td id = "submit" onclick = "submitHours()" 
-		style = "text-align:center; font-size:30; font-weight:bold">
+		style = "text-align:center; font-size:25; font-style:italic">
 	Submit
 	</td></tr></table>
 	
 	<br/><br/>
 	
-	<table style = "border-style:solid; width:200; background-color:CC3333;">
+	<table style = "border-style:solid; width:100; background-color:CC3333;">
 	<tr onmouseover = "highlightRow('back')" 
 	    onmouseout = "unhighlightRow('back','CC3333')" 
-	    style = "width:100; height:80;" >
+	    style = "width:50; height:30;" >
 	<td id = "back" onclick = "cancel()" 
-		style = "text-align:center; font-size:30; font-weight:bold">
+		style = "text-align:center; font-size:25; font-style:italic">
 	Cancel
 	</td></tr></table>
 

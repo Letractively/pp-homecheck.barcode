@@ -2,30 +2,36 @@
 
 include_once("scripts.inc");
 
-echo("<div style = 'width:1000px; margin:0 auto;'>");
-echo("<table><tr><td style = 'width:765px'>");
-echo ("<h2 style = 'font-size:40px;'>Hello, ".ucfirst(strtolower($result['first_name']))."!</h2>");
-echo("</td><td>");
+echo("<div style = 'width:580px; margin:0 auto;'>");
+echo("<table><tr><td style = 'width:400px'>");
+echo ("<h2 style = 'font-size:24px;'>Hello, ".ucfirst(strtolower($result['first_name']))."!</h2>");
+echo("</td>");
 
 $admin = false;
 if($result['first_name'] == "ADMIN") $admin = true;
 ?>
-
 <link rel = "stylesheet" href = "<?php echo $style_sheet_path?>" type = "text/css" />
+	<td><table class = "button">
+	  <tr onmouseover = "highlightRow('vol')" onmouseout = "unhighlightRow('vol','00FF66')" >
+	  <td id = "vol" onclick = "volRedirect()" style = "text-align:center;background-color:00FF66;width:150;height:40">
+	  	
+	  	<b style = "font-style:italic;font-size:20px" >Volunteer&nbsp;Hours</b>
+	  	
+	  </td></tr></table></td>
+	  	
+	<td><table class = "button">
+	     <tr onmouseover = "highlightRow('logout')" onmouseout = "unhighlightRow('logout','CC3333')" >
+	     <td id = "logout" onclick = "window.location = 'barcode-page'" style = "text-align:center;background-color:CC3333;width:50;height:40">
+	  	  
+	  	  <b style = "font-style:italic;font-size:20px">Logout</b>
+	  	  
+	    </td></tr>
+	  </table></td>	
+	
+<?php echo("</tr></table>");?>
 
-<table class = "button">
-
-	  <tr onmouseover = "highlightRow('vol')" onmouseout = "unhighlightRow('vol','99CCFF')" >
-	  <td id = "vol" onclick = "volRedirect()" style = "text-align:center;">
-	  	<br/>
-	  	<b style = "font-size:25px;">Volunteer Hours</b>
-	  	<br/><br/>
-	  </td></tr></table>
-
-<?php echo("</td></tr></table>");?>
-
-<fieldset style = "background-color:F0F0F0; width:1000px;">
-<legend style = "font-weight:bold; font-size:30;">Your Membership:</legend>
+<fieldset style = "background-color:F0F0F0; width:550px;">
+<legend style = "font-weight:bold; font-size:20px;">Your Membership:</legend>
 
 	<table><tr>
 	<td style = 'width:700px;'>
@@ -46,9 +52,12 @@ if($result['first_name'] == "ADMIN") $admin = true;
 		//otherwise, show contact info
 		else{
 			echo("<table>");
-			echo("<tr><th>Name:</th><td>".ucFirst($result['first_name'])." ".$result['last_name']."</td></tr>");
-			echo("<tr><th>Email:</th><td>".$result['email']."</td></tr>");
-			echo("<tr><th>Phone:</th><td>".$result['phone']."</td</tr>");
+			echo("<tr><td><b>Name:</b></td><td>".$result['first_name']." ".$result['last_name']."</td></tr>");		
+			echo("<tr><td><b>Email:</b></td><td>".$result['email']."</td></tr>");
+			echo("<tr><td><b>Phone:</b></td><td>".$result['phone']."</td></tr>");
+			if ($result[$expirationdate_field]!="")
+				echo("<tr><td><b>Membership Expires:</b></td><td>".substr($result[$expirationdate_field],0,10)."</td></tr>");
+			else echo("<tr><td></td><td>(not a member)</td></tr>");
 			echo("</table>");
 		}
 		
@@ -56,26 +65,18 @@ if($result['first_name'] == "ADMIN") $admin = true;
 	</td>
 	<td style = 'width:50px;'></td>
 	<td>
-	
-	  <table class = "button">
-	     <tr onmouseover = "highlightRow('logout')" onmouseout = "unhighlightRow('logout','99CCFF')" >
-	     <td id = "logout" onclick = "window.location = 'barcode-page'" style = "text-align:center;">
-	  	  <br/>
-	  	  <b style = "font-size:25px;">Logout</b>
-	  	  <br/><br/>
-	    </td></tr>
-	  </table>	
+
 	
 	</td></tr></table>
 </fieldset>
 
 
-<fieldset style = "background-color:F0F0F0; width:1000px;">
+<fieldset style = "background-color:F0F0F0; width:550px;">
 <?php 
 if ($admin) $legend = "Inactive Events";
-else $legend = "Today's Events";
+else $legend = "Sign in for One of Today's Events";
 ?>
-<legend style = "font-weight:bold; font-size:30;"><?php echo $legend?>:</legend>
+<legend style = "font-weight:bold; font-size:20;"><?php echo $legend?>:</legend>
 
 <?php 
 	echo("<table style = 'border-style:hidden;'>");
@@ -84,16 +85,16 @@ else $legend = "Today's Events";
 	foreach($events as $e){
 	
 		if($i%2 == 0) echo("<tr>");
-		echo("<td style = 'padding:20px;'>");
+		echo("<td style = 'padding:10px;'>");
 	?>
 	
   <!-- EVENT BUTTON -->
-	<table style = "border-style:solid; width:400; background-color:99CCFF">
+	<table style = "border-style:solid; width:230; background-color:ffe23d">
 
-	  <tr onmouseover = "highlightRow('<?php echo $e['id']?>')" onmouseout = "unhighlightRow('<?php echo $e['id']?>','99CCFF')" style = "width:200; height:200;" >
+	  <tr onmouseover = "highlightRow('<?php echo $e['id']?>')" onmouseout = "unhighlightRow('<?php echo $e['id']?>','ffe23d')" style = "width:100; height:100;" >
 	  <td id = "<?php echo $e['id']?>" onclick = "eventSelect('<?php echo $e['id']?>')" style = "text-align:center">
 		<?php 
-		echo("<h1>".$e['title']."</h1>");
+		echo("<b>".$e['title']."</b>");
 		
 		if($admin) $time = $e['event_start'];
 		else{
@@ -101,7 +102,7 @@ else $legend = "Today's Events";
 		   $sTime = date("g:i a",$s);
 		   $time = $sTime;
 		}
-		echo("<h2>".$time."</h2>");
+		echo("<br><b>".$time."</b>");
 		
 		//insert any other event information here
 		
@@ -111,7 +112,7 @@ else $legend = "Today's Events";
 	</table>
  <!--  END EVENT BUTTON -->
 
-<br/><br/>
+
 <?php 
 		echo("</td>");
 		
@@ -128,10 +129,14 @@ else $legend = "Today's Events";
 
 <form method = "POST" id = "checkinForm">
 <input type = "hidden" name = "event" id = "event" value = "0" />
+<input type = "hidden" name = "name" value = <?php echo $name?> />
+<input type = "hidden" name = "phone" value = <?php echo $phone?> />
 <input type = "hidden" name = "barcode" id = "barcode" value = "<?php echo $barcode ?>" />
 </form>
 <form method = "POST" id = "volForm">
 <input type = "hidden" name = "volunteer" id = "volunteer" value = "true" />
+<input type = "hidden" name = "name" value = <?php echo $name?> />
+<input type = "hidden" name = "phone" value = <?php echo $phone?> />
 <input type = "hidden" name = "barcode" id = "barcode" value = "<?php echo $barcode ?>" />
 </form>
 

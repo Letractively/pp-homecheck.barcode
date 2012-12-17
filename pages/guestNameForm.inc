@@ -1,12 +1,12 @@
-<legend style = "font-weight:bold; font-size:30;">Please Enter Your First Name:</legend>
+<legend style = "font-style:italic; font-size:30;">Please Enter Your First Name:</legend>
 <div style = "text-align:center;">
 
 
 
 <table><tr>
-<th colspan = 2 style ="font-size:30; font-weight:bold;"></th>
+<th colspan = 2 style ="font-size:30; font-style:italic;"></th>
 
-<th id = "display" style ="font-size:30; font-weight:bold;"></th>
+<th id = "display" style ="font-size:30; font-style:italic;"></th>
 </tr>
 </table>
 
@@ -34,10 +34,10 @@ foreach($rows as $r=>$row){
 <td>
 
 
-	<table style = "border-style:solid; width:100; background-color:99CCFF">
-	<tr onmouseover = "highlightRow('<?php echo $i?>')" 
-	    onmouseout = "unhighlightRow('<?php echo $i?>','99CCFF')" 
-	    style = "width:100; height:80;" >
+	<table style = "border-style:solid; width:50; background-color:ffe23d">
+	<tr align="center" onmouseover = "highlightRow('<?php echo $i?>')" 
+	    onmouseout = "unhighlightRow('<?php echo $i?>','ffe23d')" 
+	    style = "width:50; height:40;" >
 	<td id = "<?php echo $i?>" onclick = "letterSelect('<?php echo $i?>')" 
 		style = "text-align:center; font-size:30; font-weight:bold"
 	><?php echo($l)?></td>
@@ -70,29 +70,29 @@ foreach($rows as $r=>$row){
 </form>
 
 
-<table style = 'width:1000'><tr>
-<td style = 'width:300'></td><td>
-
-<table style = "border-style:solid; width:200; background-color:00FF66">
+<table style = 'width:600'><tr>
+<td style = 'width:200'></td>	
+<td>
+<table style = "border-style:solid; width:100; background-color:00FF66">
 	<tr onmouseover = "highlightRow('submit')" 
 	    onmouseout = "unhighlightRow('submit','00FF66')" 
-	    style = "width:100; height:80;" >
+	    style = "width:50; height:40;" >
 	<td id = "submit" onclick = "submitName()" 
-		style = "text-align:center; font-size:30; font-weight:bold">
+		style = "text-align:center; font-size:30; font-style:italic">
 	Submit
 	</td></tr></table>
 	
-	
+<td style = 'width:200'></td>	
 	
 </td><td>
 	
 	
-	<table style = "border-style:solid; width:200; background-color:CC3333;">
+	<table style = "border-style:solid; width:100; background-color:CC3333;">
 	<tr onmouseover = "highlightRow('back')" 
 	    onmouseout = "unhighlightRow('back','CC3333')" 
-	    style = "width:100; height:80;" >
+	    style = "width:50; height:40;" >
 	<td id = "back" onclick = "window.location = 'barcode-page'" 
-		style = "text-align:center; font-size:30; font-weight:bold">
+		style = "text-align:center; font-size:30; font-style:italic">
 	Cancel
 	</td></tr></table>
 

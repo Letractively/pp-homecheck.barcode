@@ -3,9 +3,9 @@ include_once("scripts.inc");
 ?>
 <link rel = "stylesheet" href = "<?php echo $style_sheet_path?>" type = "text/css" />
 
-<div style = 'width:1000px; margin:0 auto;'>
+<div style = 'width:600px; margin:0 auto;'>
 
-<fieldset style = "background-color:F0F0F0; width:1050px;">
+<fieldset style = "background-color:F0F0F0; width:600px;">
 
 
 <?php 

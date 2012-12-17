@@ -1,4 +1,4 @@
-<legend style = "font-weight:bold; font-size:30;">Please Enter Your Phone Number:</legend>
+<legend style = "font-style:italic; font-size:30;">Please Enter Your Phone Number:</legend>
 <div style = "text-align:center;">
 
 
@@ -6,16 +6,16 @@
 <table><tr><td>
 
 <table><tr>
-<th colspan = 2 style ="font-size:30; font-weight:bold;">Name: </th>
+<th colspan = 2 style ="font-size:30; font-style:italic;">Name: </th>
 
-<th id = "nameDisplay" style ="font-size:30; font-weight:bold;"><?php echo $_POST['name']?></th>
+<th id = "nameDisplay" style ="font-size:30; font-style:italic;"><?php echo $_POST['name']?></th>
 </tr>
 </table>
 
 <table><tr>
-<th colspan = 2 style ="font-size:30; font-weight:bold;">Phone Number: </th>
+<th colspan = 2 style ="font-size:30; font-style:italic;">Phone Number: </th>
 
-<th id = "display" style ="font-size:30; font-weight:bold; width:200px"></th>
+<th id = "display" style ="font-size:30; font-style:italic; width:200px"></th>
 </tr></table>
 <br/>
 <table><tr>
@@ -37,10 +37,10 @@ foreach($buttons as $i=>$b){
 
 <?php if ($i == 0) echo ("</td><td>")?>
 
-	<table style = "border-style:solid; width:100; background-color:99CCFF">
+	<table style = "border-style:solid; width:100; background-color:ffe23d">
 	<tr onmouseover = "highlightRow('<?php echo $i?>')" 
-	    onmouseout = "unhighlightRow('<?php echo $i?>','99CCFF')" 
-	    style = "width:100; height:80;" >
+	    onmouseout = "unhighlightRow('<?php echo $i?>','ffe23d')" 
+	    style = "width:50; height:40;" >
 	<td id = "<?php echo $i?>" onclick = "digitSelect('<?php echo $i?>')" 
 		style = "text-align:center; font-size:30; font-weight:bold">
 	<?php echo $b?>
@@ -65,29 +65,29 @@ foreach($buttons as $i=>$b){
 </form>
 
 
-</td><td style = 'width:100;'></td><td>
+</td><td>
 
+<br/><br/><br/>
 
-
-<table style = "border-style:solid; width:200; background-color:00FF66">
+<table style = "border-style:solid; width:100; background-color:00FF66">
 	<tr onmouseover = "highlightRow('submit')" 
 	    onmouseout = "unhighlightRow('submit','00FF66')" 
-	    style = "width:100; height:80;" >
+	    style = "width:50; height:40;" >
 	<td id = "submit" onclick = "submitGuest()" 
-		style = "text-align:center; font-size:30; font-weight:bold">
+		style = "text-align:center; font-size:30; font-style:italic">
 	Submit
 	</td></tr></table>
 	
 	
-	<br/><br/>
+	<br/>
 	
 	
-	<table style = "border-style:solid; width:200; background-color:CC3333;">
+	<table style = "border-style:solid; width:100; background-color:CC3333;">
 	<tr onmouseover = "highlightRow('back')" 
 	    onmouseout = "unhighlightRow('back','CC3333')" 
-	    style = "width:100; height:80;" >
+	    style = "width:50; height:40;" >
 	<td id = "back" onclick = "window.location = 'barcode-page'" 
-		style = "text-align:center; font-size:30; font-weight:bold">
+		style = "text-align:center; font-size:30; font-style:italic">
 	Cancel
 	</td></tr></table>
 
