@@ -40,7 +40,6 @@
 		
 	//sign in as guest
 	if(array_key_exists("guest",$_POST)){			
-echo "<br>starting guest signin";	
 		
 		if(array_key_exists("phone",$_POST)){
 			$name = $_POST['name']; 
@@ -68,7 +67,7 @@ echo "<br>starting guest signin";
 	
 	//if a barcode has been submitted, look up the membership record
 	elseif(array_key_exists("barcode",$_POST)){
-echo "<br>preparing for barcode lookup again".$barcode.$name.$phone; echo " post[barcode]=". $_POST['barcode'];		
+//echo "<br>preparing for barcode lookup again".$barcode.$name.$phone; echo " post[barcode]=". $_POST['barcode'];		
 		//background image for all pages
 		echo('<body style = "background:url(sites/all/modules/barcode/pages/background.jpg) no-repeat center center fixed; text-align:center;" >');
 		$name = $_POST['name'];
@@ -80,7 +79,7 @@ echo "<br>preparing for barcode lookup again".$barcode.$name.$phone; echo " post
 		else $result = barcode_lookup($barcode, $barcode_field);
 
 		if($result){
-echo "<br>got a record back from the barcode lookup".$barcode.$name.$phone; echo " post[barcode]=". $_POST['barcode'];				
+//echo "<br>got a record back from the barcode lookup".$barcode.$name.$phone; echo " post[barcode]=". $_POST['barcode'];				
 			//if the user is checking in for an event, load the checkin page
 			if(array_key_exists("event",$_POST)){
 				$nid = $_POST['event'];
@@ -92,14 +91,14 @@ echo "<br>got a record back from the barcode lookup".$barcode.$name.$phone; echo
 			
 			//if the user is logging volunteer hours, load the volunteer page
 			elseif(array_key_exists("volunteer",$_POST)){
-echo "<br>we are here posting hours 1";
+//echo "<br>we are here posting hours 1";
 				include_once("pages/volunteer.php");
 				
 			}
 			
 			//user submitted hours
 			elseif(array_key_exists("hours",$_POST)){
-echo "<br>we are here posting hours 2";				
+//echo "<br>we are here posting hours 2";				
 				$hours = $_POST['hours'];
 				echo("<h3 align = 'center'>".$hours." HOURS SUBMITTED </h3>");
 				submit_hours($result,$hours,$date_field,$hours_field);
