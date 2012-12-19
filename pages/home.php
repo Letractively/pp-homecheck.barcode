@@ -55,8 +55,10 @@ if($result['first_name'] == "ADMIN") $admin = true;
 			echo("<tr><td><b>Name:</b></td><td>".$result['first_name']." ".$result['last_name']."</td></tr>");		
 			echo("<tr><td><b>Email:</b></td><td>".$result['email']."</td></tr>");
 			echo("<tr><td><b>Phone:</b></td><td>".$result['phone']."</td></tr>");
-			if ($result[$expirationdate_field]!="")
-				echo("<tr><td><b>Membership Expires:</b></td><td>".substr($result[$expirationdate_field],0,10)."</td></tr>");
+			if ($result[$expirationdate_field]!="") {
+				$expdate = mktime(0,0,0,substr($result[$expirationdate_field],5,2),substr($result[$expirationdate_field],8,2),substr($result[$expirationdate_field],0,4));
+				echo("<tr><td><b>Membership Expires:</b></td><td>".date("F j, Y",$expdate)."</td></tr>");
+			}
 			else echo("<tr><td></td><td>(not a member)</td></tr>");
 			echo("</table>");
 		}

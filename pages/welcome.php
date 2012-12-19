@@ -15,7 +15,7 @@ $image_path = "sites/all/modules/barcode/pages/welcome.jpg";
 	  <tr onmouseover = "highlightRow('guest')" onmouseout = "unhighlightRow('guest','ffe23d')" >
 	  <td id = "guest" onclick = "guestRedirect()" style = "text-align:center;">
 	  	
-	  	<i style = "font-size:15px;">Sign in as Guest.</i>
+	  	<i style = "font-size:15px;">No ID tag?  Sign in here.</i>
 	  	<br/>
 	  </td></tr>
 </table>

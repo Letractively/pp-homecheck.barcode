@@ -2,8 +2,6 @@
 
 include_once("scripts.inc");
 
-echo "result[first_name]=".$result['first_name'];
-
 ?>
 <link rel = "stylesheet" href = "<?php echo $style_sheet_path?>" type = "text/css" />
 
